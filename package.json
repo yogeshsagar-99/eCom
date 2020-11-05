@@ -10,6 +10,7 @@
     "@sailshq/socket.io-redis": "^5.2.0",
     "grunt": "1.0.4",
     "lodash": "^4.17.20",
+    "mongoose": "^5.10.11",
     "sails": "^1.4.0",
     "sails-hook-grunt": "^4.0.0",
     "sails-hook-orm": "^2.1.1",

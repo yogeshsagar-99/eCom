@@ -20,14 +20,16 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': { view: 'homepage' },
-  'get /results': { view: 'results' },
-   'get /read' : 'datacontroller.list',
-   'get /product': {view: 'productDesc'},
+  'get /home': { view: 'home' },
+  'get /home' : 'ProductController.list',
+  'post /home' : 'ProductController.searchProduct',
+   'get /product/:id?': {view: 'productDesc'},
+   'get /product/:id?': 'ProductController.findProduct',
    'POST /create-product': 'ProductController.createProduct',
    'POST /find-product': 'ProductController.findProduct',
    'POST /s': 'ProductController.searchProduct',
    'POST /find-all': 'ProductController.findAll',
-   
+   'POST /cart': 'userController.cart',
   /***************************************************************************
   *                                                                          *
   * More custom routes here...                                               *

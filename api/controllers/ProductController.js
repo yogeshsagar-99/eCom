@@ -1,4 +1,6 @@
 const _ = require("lodash");
+var mongoose = require('mongoose')
+
 const createProduct = async (req, res) => {
     const productName = req.body.productName;
     const price = req.body.price;
@@ -30,16 +32,15 @@ const createProduct = async (req, res) => {
     
   };
   const findProduct = async (req, res) => {
-    const id= req.body.id;
+    const id= req.param.id;
    
     try {
         
-      const findData = await Product.findOne({
-        id:id
-      });
-      if (findData) {
+      const findData = await Product.find({id:id});
+      if (!_.isEmpty(findData)) {
         console.log("success");
-        res.send(findData);
+        
+        res.view('productDesc',{result:findData[0]})
       } else {
         console.log("something went wrong");
       }
@@ -61,9 +62,7 @@ const createProduct = async (req, res) => {
    
     try {
         
-      const findData = await Product.find({
-        
-      });
+      const findData = await Product.find({});
       if (findData) {
         console.log("success");
         res.send(findData);
@@ -86,10 +85,11 @@ const createProduct = async (req, res) => {
       const allProduct = await Product.find({});
       if (allProduct) {
         console.log("success");
-        const searchResult=_.filter(allProduct,function(product){
+        const data=_.filter(allProduct,function(product){
+
            return product[searchBy].includes(searchKey)
         })
-        res.send(searchResult);
+        res.view('home',{results:data})
       } else {
         console.log("something went wrong");
       }
@@ -101,4 +101,28 @@ const createProduct = async (req, res) => {
     
   };
   
-  module.exports={createProduct, findProduct,findAll,searchProduct}
+//   const cart = async (req, res) => {
+//     const id= req.body.id;
+   
+//     try {
+        
+//       const findData = await user.findOne({id:id});
+//       if (findData) {
+//         console.log("success");
+//         res.send((findData).mongoose.populate('productName'));
+//       } else {
+//         console.log("something went wrong");
+//       }
+//     } catch (err) {
+//         throw(err)
+//       console.log(err);
+//       return res.json("Some error occurred");
+//     }
+
+//   };
+const list= async function(req,res){
+   const data= await Product.find({});
+    res.view('home',{results:data})
+
+};
+  module.exports={createProduct, findProduct,findAll,searchProduct,list}

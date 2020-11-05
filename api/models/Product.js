@@ -8,7 +8,7 @@ module.exports = {
         type: "string",
       },
       price: {
-        type: "string",
+        type: "number",
       },
       description: {
         type: "string",
@@ -16,6 +16,7 @@ module.exports = {
       imageUrl: {
         type: "string",
       },
+      
     },
     schema: true,
   };
