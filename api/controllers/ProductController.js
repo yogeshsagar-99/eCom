@@ -31,8 +31,41 @@ const createProduct = async (req, res) => {
     }
     
   };
+
+  const editProduct = async (req, res) => {
+    const id= req.params.id;
+    const productName = req.body.productName;
+    const price = req.body.price;
+    const description = req.body.description;
+    const imageUrl = req.body.imageUrl;
+    const category = req.body.category;
+    console.log("here");
+    try {
+        console.log("here");
+      const editedProduct = await Product.updateOne({id:id},{
+        
+        productName: productName,
+        price: price,
+        description: description,
+        imageUrl: imageUrl,
+        category: category,
+
+      });
+      if (editedProduct) {
+        console.log(JSON.stringify(editedProduct));
+        res.view('productDesc',{result:editedProduct})
+      } else {
+        console.log("something went wrong");
+      }
+    } catch (err) {
+        throw(err)
+      console.log(err);
+      return res.json("Some error occurred");
+    }
+    
+  };
   const findProduct = async (req, res) => {
-    const id= req.param.id;
+    const id= req.params.id;
    
     try {
         
@@ -49,9 +82,28 @@ const createProduct = async (req, res) => {
       console.log(err);
       return res.json("Some error occurred");
     }
+  };
 
 
-    
+
+  const viewUpdateProduct = async (req, res) => {
+    const id= req.params.id;
+   
+    try {
+        
+      const findData = await Product.find({id:id});
+      if (!_.isEmpty(findData)) {
+        console.log(JSON.stringify(findData));
+        
+        res.view('productEdit',{result:findData[0]})
+      } else {
+        console.log("something went wrong");
+      }
+    } catch (err) {
+        throw(err)
+      console.log(err);
+      return res.json("Some error occurred");
+    }
   };
 
   
@@ -125,4 +177,4 @@ const list= async function(req,res){
     res.view('home',{results:data})
 
 };
-  module.exports={createProduct, findProduct,findAll,searchProduct,list}
+  module.exports={createProduct, findProduct,findAll,searchProduct,list,editProduct,viewUpdateProduct}
