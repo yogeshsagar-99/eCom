@@ -1,0 +1,35 @@
+<style>
+.right {
+    position: absolute;
+    
+    right: 300px;
+    width: 300px;
+    top: 300px;
+    padding: 10px;
+  }
+  .left {
+    position: absolute;
+    
+    left: 100px;
+    width: 300px;
+    top: 300px;
+    padding: 10px;
+  }
+</style>
+<div class=left   >
+    
+    <img src= <%= result.imageUrl %> width="333" height="375"  >
+    <br>
+</div>
+    <div class=right>
+        <%= result.description %>
+      
+      <br>
+      <h2 style="padding: 10px;"> @ <%= result.price %>-</h2>
+      <br>
+      <a href="/editproduct/<%= result.id %>">Edit</a>
+    </div>
+    
+
+    
+

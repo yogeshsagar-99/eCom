@@ -1,0 +1,103 @@
+<style>
+  
+.right {
+  position: absolute;
+  
+  right: 50px;
+  width: 400px;
+ top: 0px;
+  padding: 10px;
+}
+td {
+        width: 200px;
+        text-align: right;
+        padding: 5px;
+      }
+</style>
+
+<script type="text/javascript">
+setTimeout(function sunrise () {
+  document.getElementsByClassName('header')[0].style.backgroundColor = '#118798';
+}, 0);
+</script>
+
+<div class="default-page">
+  
+    <div class="container">
+      <div class="right" >
+        <form action="/s" method="POST" >
+           <label ><h4>Search by:</h4></label>
+           <br>
+           <select id="type" name="searchBy">
+             <option value="searchBy">Category</option>
+             <option value="searchKey">Product</option>         
+           </select>
+           <br>
+           <label><h4>What are you looking for:</h4></label>
+           <input type="text" id="searched" name="searchedItem" size="27"><br><br>
+           <button type="button">Search</button>
+         </form>
+       </div>
+       
+    
+  
+       <style>
+  
+        .left {
+          position: absolute;
+          
+          left: 50px;
+          width: 400px;
+         
+          padding: 10px;
+        }
+        td {
+                width: 200px;
+                text-align: right;
+                padding: 5px;
+              }
+        </style>
+    <div class="container">
+        <h1 text-align: center>Showing result for___ :</h1>
+        
+        <br><br>
+        <table> 
+          <% results.forEach(function(article) { %>
+            <tr>
+            <td><%= article.productName%> </td>
+            <td><%= article.category%> </td>
+            <td><img src= <%= article.imageUrl %> > </td>
+            </tr>
+            <%})%>
+             <tr>
+                <td class="td"><img src="https://i-cdn.phonearena.com/images/article/64576-two_lead/The-Best-Phones-of-2019.jpg" width="=350" height="150"></td>
+                <td class="td"><h4>Name</h4></td>
+                <td class="td"><button>Show Descripton</button></td>
+                  <td class="td"><button>Add to cart</button></td>
+            </tr>
+            <tr>
+                <td class="td"><img src="https://i-cdn.phonearena.com/images/article/64576-two_lead/The-Best-Phones-of-2019.jpg" width="=350" height="150"></td>
+                <td class="td"><h4>Name</h4></td>
+                <td class="td"><button>Show Descripton</button></td>
+                  <td class="td"><button>Add to cart</button></td>
+            </tr>
+            <tr>
+                <td class="td"><img src="https://i-cdn.phonearena.com/images/article/64576-two_lead/The-Best-Phones-of-2019.jpg" width="=350" height="150"></td>
+                <td class="td"><h4>Name</h4></td>
+                <td class="td"><button>Show Descripton</button></td>
+                  <td class="td"><button>Add to cart</button></td>
+            </tr>
+            <tr>
+                <td class="td"><img src="https://i-cdn.phonearena.com/images/article/64576-two_lead/The-Best-Phones-of-2019.jpg" width="=350" height="150"></td>
+                <td class="td"><h4>Name</h4></td>
+                <td class="td"><button>Show Descripton</button></td>
+                  <td class="td"><button>Add to cart</button></td>
+            </tr> -->
+            
+        </table>
+    </div>
+
+        
+      </table>
+  </div>
+</div>

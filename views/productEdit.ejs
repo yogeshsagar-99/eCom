@@ -1,0 +1,56 @@
+<style>
+    .right {
+        position: absolute;
+        
+        right: 300px;
+        width: 300px;
+        top: 300px;
+        padding: 10px;
+      }
+      .left {
+        position: absolute;
+        
+        left: 100px;
+        width: 300px;
+        top: 300px;
+        padding: 10px;
+      }
+</style>
+    <div class=left >
+        
+        <img src= <%= result.imageUrl %> width="333" height="375"  >
+        <br>
+    </div>
+    <div class=right>
+            <%= result.description %>          
+          <br>
+          <h2 style="padding: 10px;"> @ <%= result.price %>-</h2>
+          <br>
+          
+          <form action="/editproduct/<%= result.id %>" method="POST" >
+             
+            <br>
+            <input type="text" id="type" name="productName" value="<%= result.productName %>" size="27">
+            <br>
+            <br>
+            <input type="text" id="type" name="category" value="<%= result.category %>" size="27">
+            <br>
+            <br>
+            <input type="text" id="type" name="price" value="<%= result.price %>" size="27">
+            <br>
+            <br>
+            <input type="text" id="type" name="description" value="<%= result.description %>" size="27">
+            <br>
+            <br>
+            <input type="text" id="type" name="imageUrl" value="<%= result.imageUrl %>" size="27">
+            <br>
+        
+            <input type="submit" value="Submit">
+          </form>
+    </div>
+    
+        
+    
+        
+    
+    

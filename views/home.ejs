@@ -1,0 +1,89 @@
+<style>
+
+  .right {
+    position: absolute;
+    
+    right: 50px;
+    width: 400px;
+   top: 0px;
+    padding: 10px;
+  }
+  .left {
+      position: absolute;
+      
+      left: 50px;
+      width: 400px;
+     
+      padding: 10px;
+    }
+    td {
+            width: 250px;
+            /* text-align: right; */
+            padding: 15px;
+          }
+  
+          a:link {
+  color: rgb(21, 34, 148);
+}
+
+
+a:visited {
+  color: rgb(60, 24, 190);
+}
+
+
+a:hover {
+  color: rgb(0, 0, 0);
+}
+
+
+a:active {
+  color: rgb(36, 45, 128);
+}
+  </style>
+  
+  <script type="text/javascript">
+  setTimeout(function sunrise () {
+    document.getElementsByClassName('header')[0].style.backgroundColor = '#118798';
+  }, 0);
+  </script>
+  
+  <div class="default-page">
+    
+      <div class="container">
+        <div class="right" >
+          <form action="/home" method="POST" >
+             
+             <br>
+             <select id="type" name="searchBy">
+               <option value="category">Category</option>
+               <option value="productName">Product</option>         
+             </select>
+             <br>
+             <label><h4>What are you looking for:</h4></label>
+             <input type="text" id="type" name="searchKey" size="27"><br><br>
+             <input type="submit" value="Submit">
+           </form>
+         </div>
+         
+   <div style="background-color:#DCDCDC";>    
+<div class="container" >
+    
+    
+    
+    <table> 
+        <% results.forEach(function(article) { %>
+          <tr>
+            <td class="td"><img src= <%= article.imageUrl %>  width="=350" height="150"></td>
+            <td class="td"><h4><b><%= article.productName%></b></h4></td>
+            <td class="td"><h4><%= article.category%></h4></td>
+            <td class="td"><a href="/product/<%= article.id %>">Show description</a></td>
+              <td class="td"><button style="background-color:rgba(91, 181, 204, 0)">Add to cart</button></td>
+        </tr>
+        
+        <%})%>
+        
+        
+    </table>
+</div>
+</div> 
